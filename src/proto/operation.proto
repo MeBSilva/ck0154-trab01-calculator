@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package operation.package;
+
+message Request {
+  string operation = 1;
+}
+
+message Response {
+  oneof body {
+    Error error = 1;
+    double result = 2;
+  };
+  double status = 3;
+}
+
+message Error {
+  string name = 1;
+  string message = 2;
+}
